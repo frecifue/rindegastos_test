@@ -1,6 +1,6 @@
 export interface IEjercicioDos{
-    birthDayDate: Date;
-    nextBirthDayDate: Date;
+    birthDayDate: string;
+    nextBirthDayDate: string;
     daysUntilMyBirthday: number;
     message: string;
 }

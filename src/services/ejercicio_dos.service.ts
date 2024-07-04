@@ -58,8 +58,8 @@ export class EjercicioDosService {
         
 
         return { 
-            birthDayDate: birthdateFormat,
-            nextBirthDayDate: nextBirthday,
+            birthDayDate: format(birthdateFormat, 'yyyy-MM-dd'),
+            nextBirthDayDate: nextBirthday ? format(nextBirthday, 'yyyy-MM-dd') : '',
             daysUntilMyBirthday: diffDaysToBirthDay,
             message: response,
         } as IEjercicioDos;
