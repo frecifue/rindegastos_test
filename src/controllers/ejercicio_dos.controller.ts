@@ -8,7 +8,6 @@ export class EjercicioDosController {
   constructor(private ejercicioDosService: EjercicioDosService) {}
 
   @Get('getDaysUntilMyBirthday')
-  @UsePipes(new ValidationPipe({ transform: true }))
   getDaysUntilMyBirthday(@Query() query: EjercicioDosDto): IEjercicioDos {
     return this.ejercicioDosService.getDaysUntilMyBirthday(query.birthdate);
     

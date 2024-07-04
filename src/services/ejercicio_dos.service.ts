@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common';
-import { format, differenceInDays, addYears, isBefore, setHours, setMinutes, setSeconds, addDays, parseISO } from 'date-fns';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { format, differenceInDays, addYears, isBefore, setHours, setMinutes, setSeconds, addDays, parseISO, isValid } from 'date-fns';
 import { IEjercicioDos } from 'src/common/interfaces/ejercicio_dos.interface';
 
 @Injectable()
@@ -22,6 +22,9 @@ export class EjercicioDosService {
         let nextBirthday;
         let diffDaysToBirthDay;
 
+        if(!isValid(birthdateFormat)){
+            throw new HttpException('Fecha no válida', HttpStatus.BAD_REQUEST);
+        }
         // Agregar un dï¿½a a la fecha de nacimiento.. 
         birthdateFormat = addDays(birthdateFormat, 1);
 

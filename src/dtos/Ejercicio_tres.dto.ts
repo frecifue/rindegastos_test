@@ -1,11 +1,16 @@
-import { IsNotEmpty, IsNumber, IsNumberString } from "class-validator";
+import { Type } from "class-transformer";
+import { IsNotEmpty, IsNumber, IsNumberString, IsPositive } from "class-validator";
 
 export class EjercicioTresDto{
-    @IsNumberString()
+    @IsNumber()
     @IsNotEmpty()
-    readonly first: string;
+    @IsPositive()
+    @Type(() => Number)
+    readonly first: number;
 
-    @IsNumberString()
+    @IsNumber()
     @IsNotEmpty()
-    readonly second: string;
+    @IsPositive()
+    @Type(() => Number)
+    readonly second: number;
 }

@@ -8,7 +8,6 @@ export class EjercicioUnoController {
   constructor(private ejercicioUnoService: EjercicioUnoService) {}
 
   @Get('getConvertedAmount')
-  @UsePipes(new ValidationPipe({ transform: true }))
   async getConvertedAmount(@Query() payload: EjercicioUnoDto,): Promise<IEjercicioUno> {
     return await this.ejercicioUnoService.convertCurrency(payload.from, payload.to, payload.amount);
   }

@@ -9,11 +9,9 @@ export class EjercicioTresController {
     constructor(private ejercicioTresService: EjercicioTresService){}
 
     @Get('getTheNumber')
-    @UsePipes(new ValidationPipe({ transform: true }))
     getTheNumber(@Query() payload: EjercicioTresDto): IEjercicioTres{
         
-        const first = parseInt(payload.first);
-        const second = parseInt(payload.second);
+        const { first, second } = payload;
 
         return this.ejercicioTresService.getTheNumber(first, second);
   }

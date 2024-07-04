@@ -18,7 +18,7 @@ export class EjercicioUnoService {
             if (rates && rates[to] && rates[from]) {
                 const rateTo = rates[to];
                 const rateFrom = rates[from];
-                const usdAmount = amount / rateFrom; // conversion intermedia a usd
+                const usdAmount = amount / rateFrom;
                 const convertedAmount = usdAmount * rateTo; 
                 return {
                     from: from,
