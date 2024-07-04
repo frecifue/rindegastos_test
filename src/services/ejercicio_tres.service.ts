@@ -11,6 +11,10 @@ export class EjercicioTresService {
             resultado += (first * i).toString();
           }
 
-    return {response: resultado.slice(0, 9)} as IEjercicioTres;
+    return {
+        firstValue: first,
+        secondValue: second,
+        result: resultado.slice(0, 9)
+    } as IEjercicioTres;
     }
-}
+} 

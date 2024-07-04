@@ -1,3 +1,5 @@
 export interface IEjercicioTres{
-    response: string;
+    firstValue: number;
+    secondValue: number;
+    result: string;
 }
