@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "5d37d1de-3d11-4407-90c2-061a7818d37b",
+		"name": "RindegastosTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9902421"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/ejercicio-uno/getConvertedAmount?from=CLP&to=ARS&amount=10000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/ejercicio-uno/getConvertedAmount?from=CLP&to=ARS&amount=10000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ejercicio-uno",
+						"getConvertedAmount"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "CLP"
+						},
+						{
+							"key": "to",
+							"value": "ARS"
+						},
+						{
+							"key": "amount",
+							"value": "10000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/ejercicio-dos/getDaysUntilMyBirthday?birthdate=1988-07-08",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/ejercicio-dos/getDaysUntilMyBirthday?birthdate=1988-07-08",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ejercicio-dos",
+						"getDaysUntilMyBirthday"
+					],
+					"query": [
+						{
+							"key": "birthdate",
+							"value": "1988-07-08"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/ejercicio-tres/getTheNumber?first=9&second=5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/ejercicio-tres/getTheNumber?first=9&second=5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ejercicio-tres",
+						"getTheNumber"
+					],
+					"query": [
+						{
+							"key": "first",
+							"value": "9"
+						},
+						{
+							"key": "second",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://openexchangerates.org/api/latest.json?app_id=87efd2c39202475e99abf8f77083e7f2&from=CLP&value=1500&to=ARS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://openexchangerates.org/api/latest.json?app_id=87efd2c39202475e99abf8f77083e7f2&from=CLP&value=1500&to=ARS",
+					"protocol": "https",
+					"host": [
+						"openexchangerates",
+						"org"
+					],
+					"path": [
+						"api",
+						"latest.json"
+					],
+					"query": [
+						{
+							"key": "app_id",
+							"value": "87efd2c39202475e99abf8f77083e7f2"
+						},
+						{
+							"key": "from",
+							"value": "CLP"
+						},
+						{
+							"key": "value",
+							"value": "1500"
+						},
+						{
+							"key": "base",
+							"value": "CLP",
+							"disabled": true
+						},
+						{
+							"key": "to",
+							"value": "ARS"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
