@@ -1,3 +1,6 @@
 export interface IEjercicioUno{
-    response: string;
+    from: string;
+    to: string;
+    amount: number;
+    convertedAmount: number;
 }

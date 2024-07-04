@@ -1,11 +1,12 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import axios, { AxiosResponse } from 'axios';
+import { openExchangeConfig } from 'config/openexchangesrates.config';
 import { IEjercicioUno } from 'src/common/interfaces/ejercicio_uno.interface';
 @Injectable()
 export class EjercicioUnoService {
 
-    private readonly appId = '87efd2c39202475e99abf8f77083e7f2'; 
-    private readonly apiUrl = 'https://openexchangerates.org/api/latest.json';
+    private readonly appId = openExchangeConfig.appId;
+    private readonly apiUrl = openExchangeConfig.apiUrl;
 
     async convertCurrency(from: string, to: string, amount: number): Promise<IEjercicioUno> {
         
@@ -19,7 +20,12 @@ export class EjercicioUnoService {
                 const rateFrom = rates[from];
                 const usdAmount = amount / rateFrom; // conversion intermedia a usd
                 const convertedAmount = usdAmount * rateTo; 
-                return {response: convertedAmount.toString()} as IEjercicioUno;
+                return {
+                    from: from,
+                    to: to,
+                    amount: amount,
+                    convertedAmount: convertedAmount
+                } as IEjercicioUno;
                 
             } else {
                 throw new NotFoundException(`No se encontró la tasa de cambio para convertir de ${from} a ${to}`);
