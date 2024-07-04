@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { openExchangeConfig } from 'config/openexchangesrates.config';
 import { IEjercicioUno } from 'src/common/interfaces/ejercicio_uno.interface';
 @Injectable()
