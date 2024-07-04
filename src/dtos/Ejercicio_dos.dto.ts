@@ -1,11 +1,8 @@
 import { Transform } from "class-transformer";
-import { IsDateString } from "class-validator";
+import { IsDateString, IsString, Matches } from "class-validator";
 
 export class EjercicioDosDto {
-    @IsDateString()
-    @Transform(({ value }) => {
-        const date = new Date(value);
-        return date.toISOString(); // Transforma la fecha a formato ISO 8601
-    })
-    birthdate: Date;
+    @IsString()
+    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'La fecha debe estar en el formato año-mes-día (YYYY-MM-DD)' })
+    birthdate: string;
   }
