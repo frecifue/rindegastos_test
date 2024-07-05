@@ -5,7 +5,7 @@ import { IEjercicioDos } from 'src/common/interfaces/ejercicio_dos.interface';
 @Injectable()
 export class EjercicioDosService {
 
-    // Establece la hora, minuto y segundo deseados
+    // Establece la hora, minuto y segundo deseados, para evitar problemas de timezone
     standardizeTime = (date: Date) => {
         date = setHours(date, 0);
         date = setMinutes(date, 0);
@@ -16,7 +16,6 @@ export class EjercicioDosService {
 
     getDaysUntilMyBirthday(birthdate: string): IEjercicioDos {
 
-        const today = new Date();
         let birthdateFormat = parseISO(birthdate);
         let response = '';
         let nextBirthday;
@@ -25,11 +24,11 @@ export class EjercicioDosService {
         if(!isValid(birthdateFormat)){
             throw new HttpException('Fecha no válida', HttpStatus.BAD_REQUEST);
         }
-        // Agregar un dï¿½a a la fecha de nacimiento.. 
+        // Agregar un dia a la fecha de nacimiento.. 
         birthdateFormat = addDays(birthdateFormat, 1);
 
         // Formatear todas las fechas con la misma hora, minuto y segundo
-        const standardizedToday = this.standardizeTime(today);
+        const standardizedToday = this.standardizeTime(new Date());
         const standardizedBirthdate = this.standardizeTime(birthdateFormat);
         
         if(standardizedBirthdate < standardizedToday){
@@ -38,7 +37,7 @@ export class EjercicioDosService {
             
             nextBirthday = this.standardizeTime(nextBirthday);
     
-            if (isBefore(nextBirthday, standardizedToday) || nextBirthday.getDate() !== standardizedBirthdate.getDate()) {
+            if (isBefore(nextBirthday, standardizedToday)) {
                 nextBirthday = addYears(nextBirthday, 1);
                 nextBirthday = this.standardizeTime(nextBirthday);
             }
@@ -49,10 +48,10 @@ export class EjercicioDosService {
             if(diffDaysToBirthDay === 0){
                 response = 'Felicidades! hoy es tu cumpleaños!'
             }else{
-                response = `quedan ${diffDaysToBirthDay} días para tu cumpleaños!`;
+                response = `quedan ${diffDaysToBirthDay} dias para tu cumpleaños!`;
             }
         }else{
-            response = 'Usted nisiquiera ha nacido aún..';
+            response = 'Usted ni siquiera ha nacido aún..';
         }
 
         
