@@ -1,4 +1,5 @@
-import { IsNotEmpty, IsNumberString, IsString, IsUppercase, Length, MaxLength, MinLength } from "class-validator";
+import { Type } from "class-transformer";
+import { IsInt, IsNotEmpty, IsNumber, IsNumberString, IsPositive, IsString, IsUppercase, Length, MaxLength, MinLength } from "class-validator";
 
 export class EjercicioUnoDto{
     @IsString()
@@ -13,7 +14,9 @@ export class EjercicioUnoDto{
     @IsUppercase({ message: 'El campo from debe estar en mayúsculas' })
     readonly to: string;
 
-    @IsNumberString()
+    @IsNumber()
     @IsNotEmpty()
+    @IsPositive()
+    @Type(() => Number)
     readonly amount: number;
 }
